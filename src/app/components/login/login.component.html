@@ -1,0 +1,48 @@
+<div class="row">
+
+  <div class="col s4 offset-s4">
+
+{{loginForm.valid}}
+     <div class="card">
+      <div class="card-action row">
+        <div [hidden]="!isLoading" class="col s12 center">
+          <img src="https://vip.vipbengurion.com/img/plane_loading.d89d7baa.gif" />
+        </div>
+      <form [hidden]="isLoading" [formGroup]="loginForm" (ngSubmit)="login()" class="col s12 center">
+        
+       
+          <div class="input-field col s12">
+            <img class="center" src="assets/images/logo.png" width="110px">
+          </div>
+
+          <div class="input-field col s12">
+            <input value="admin@miu.edu"   placeholder="Placeholder" formControlName="email" type="text" class="validate">
+            <label for="first_name">Email</label>
+          </div>
+          <div class="input-field col s12">
+            <input value="admin" type="password" formControlName="password" class="validate">
+            <label for="last_name">Password</label>
+          </div>
+
+          
+       
+        
+       
+          <div class="col s12">
+        <button [disabled]="!loginForm.valid" class="btn  blue accent-4" type="submit" name="action">Login
+          <i class="material-icons right">vpn_key</i>
+        </button>
+<br>
+        <label [hidden]="!isError" class="red-text"> Invalid credentials</label>
+      
+        </div>
+ 
+    </form>
+
+       
+
+        </div>
+      </div>
+  
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.btn-filter{
+    width: 100%;
+    background-color: #d4101f;
+    color: #fff;
+    font-size: 20px;
+    display: block;
+    margin-top: 30px;
+}
+
+.btn-edit{
+    width: 100%;
+    background-color: #427c28;
+    color: #fff;
+    font-size: 20px;
+    display: block;
+    margin-top: 30px;
+    border-radius: 0px;
+}
+
+.page-title-div{
+  margin-top: 15px;
+}
+
+h2.header{
+  margin-bottom: 0px !important;
+  top: 0px !important;
+  color: #d4101f;
+  font-weight: bolder !important;
+}
+
+h2.header > i{
+  color: #042e20;
+  font-weight: inherit;
+}
+
+.breadcrumbs a {
+  color: #042e20;
+}

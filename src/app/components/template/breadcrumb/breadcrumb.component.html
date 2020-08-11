@@ -1,0 +1,20 @@
+<div *ngIf="nodes" class="row">
+  <div class="col s12 page-title-div">
+    <ng-container>
+      <h2 class="header"><i class="fa fa-{{nodes.icon}} md-36"></i> {{ nodes.name | translate}}</h2>
+      <ol class="breadcrumbs left">
+        <ng-container *ngFor="let node of nodes.submenu">
+          <li *ngIf="node.active === false"><a [routerLink]="node.routelink">{{ node.name |
+            translate}}</a></li>
+          <li class="active" *ngIf="node.active === true">{{ node.name | translate}}</li>
+        </ng-container>
+      </ol>
+    </ng-container>
+    <ng-container *ngIf="nodes.hasBtn === true">
+      <button [routerLink]=" nodes.BtnParams.btn_routerLink"
+              class="btn right btn-primary {{ nodes.BtnParams.btn_class}}">
+        <i class="fa fa-{{ nodes.BtnParams.btn_icon}}"></i> {{ nodes.BtnParams.btn_text | translate}}
+      </button>
+    </ng-container>
+  </div>
+</div>

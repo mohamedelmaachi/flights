@@ -1,0 +1,56 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "importHelpers": true,
+    "outDir": "./dist/out-tsc",
+    "baseUrl": "src",
+    "paths": {
+      "@app/services": [
+        "app/services/index.ts"
+      ],
+      "@app/components": [
+        "app/components/index.ts"
+      ],
+      "@app/directives": [
+        "app/directives/index.ts"
+      ],
+      "@app/guards": [
+        "app/guards/index.ts"
+      ],
+      "@app/pipes": [
+        "app/pipes/index.ts"
+      ],
+      "@app/models": [
+        "app/models/index.ts"
+      ],
+      "@app/modules": [
+        "app/modules/index.ts"
+      ],
+      "@app/helpers": [
+        "app/helpers/index.ts"
+      ],
+      "@app/config": [
+        "app/config/index.ts"
+      ]
+    },
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types",
+      "node_modules/deepstream.io-client.js/src/client.d.ts"
+    ],
+    "types": [
+      "jquery",
+      "materialize-css"
+    ],
+    "lib": [
+      "es2016",
+      "dom"
+    ],
+    "module": "es2015"
+  }
+}

@@ -1,0 +1,75 @@
+<!--Left sidebar-->
+
+<aside>
+    <!-- overlay -->
+    <div class="left-sidebar-overlay"></div>
+    <div class="left-sidebar z-depth-3">
+        <!-- brand -->
+        <div class="md-logo-container hide-on-large-only theme-bg">
+            <a class="md-brand-logo white-text" href="#"></a>
+        </div>
+        <!--end brand -->
+        <!--Left sidebar body-->
+        <div class="left-sidebar-body">
+            <!--current subscription user plan -->
+            <div class="current-subscription">
+              <table>
+                <tbody>
+                  <tr>
+                    <td class="center">
+                      <img class="center" src="assets/images/logo.png" width="110px">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="divider"></div>
+            <div class="current-subscription">
+                <table>
+                    <tbody>
+                        <tr>
+                          <td class="center">
+                              <a (click)="logout()" class="waves-effect waves-light btn-flat theme-text">Logout</a>
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="divider"></div>
+            <!--End current subscription user plan -->
+
+            <!--sidebar menu-->
+            <ul class="leftside-navigation">
+                <li class="navigation">Menu</li>
+              
+                <ng-container *ngFor="let node of nodes">
+                  <li ><a class="menu waves-effect waves-default tooltipped" routerLink="airlines">
+                    <i class="material-icons left-icon">airplanemode_active</i>AirLines</a>
+                  </li>
+                  <li ><a class="menu waves-effect waves-default tooltipped" routerLink="airports">
+                    <i class="material-icons left-icon">flight_takeoff</i>Airports</a>
+                  </li>
+                  <li ><a class="menu waves-effect waves-default tooltipped"  routerLink="flights">
+                    <i class="material-icons left-icon">flight</i>Flights</a>
+                  </li>
+                  <li ><a class="menu waves-effect waves-default tooltipped" routerLink="reservations" >
+                    <i class="material-icons left-icon">alarm</i>Reservations</a>
+                  </li>
+                  <li ><a class="menu waves-effect waves-default tooltipped" routerLink="passengers" >
+                    <i class="material-icons left-icon">airline_seat_recline_extra</i>Passangers</a>
+                  </li>
+                </ng-container>
+            </ul>
+            <!--End sidebar menu-->
+        </div>
+
+        <!--End Left sidebar body-->
+
+        <!--Left sidebar footer-->
+        <div class="sidebar-footer">
+            <a href="javascript:void(0)" id="collapsed-left-sidebar" class="toggle-icon-left-sidebar waves-effect waves-default"><i class="right material-icons">keyboard_arrow_left</i></a>
+        </div>
+        <!--End Left sidebar footer-->
+    </div>
+</aside>
+<!--End left sidebar-->
