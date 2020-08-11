@@ -9,7 +9,7 @@ import { Http, Headers, RequestOptions} from '@angular/http';
 })
 export class AirlineComponent implements OnInit {
 
-  products = [];
+  airlines = [];
   options=null;
   headers=null;
 
@@ -20,9 +20,9 @@ export class AirlineComponent implements OnInit {
    }
 
   public sendGetRequest(){
-     this.httpClient.get("http://localhost:8080/airlines",{ headers: this.headers }).subscribe((data: any[])=>{
+     this.httpClient.get("http://localhost:8081/airlines",{ headers: this.headers }).subscribe((data: any[])=>{
       console.log(data);
-      this.products = data;
+      this.airlines = data;
     })  ;
   }
 
