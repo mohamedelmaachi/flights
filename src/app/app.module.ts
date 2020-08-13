@@ -30,6 +30,8 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 import { PassengerComponent } from './components/passenger/passenger.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AirLineDetailsComponent } from './components/air-line-details/air-line-details.component';
+import { AirPortDetailsComponent } from './components/air-port-details/air-port-details.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReservationComponent,
     PassengerComponent,
     LoginComponent,
+    AirLineDetailsComponent,
+    AirPortDetailsComponent,
   ],
   imports: [
     ReactiveFormsModule,

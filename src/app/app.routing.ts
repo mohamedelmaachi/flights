@@ -7,9 +7,13 @@ import { PassengerComponent } from './components/passenger/passenger.component';
 import { FlightComponent } from './components/flight/flight.component';
 import { LoginComponent } from './components/login/login.component';
 import { ContentComponent } from './components';
+import { AirLineDetailsComponent } from './components/air-line-details/air-line-details.component';
+import { AirPortDetailsComponent } from './components/air-port-details/air-port-details.component';
 
 export const appRoutes: Routes = [
   {path:'airlines', component:AirlineComponent, pathMatch:'full'},
+  {path:'airline/:code', component:AirLineDetailsComponent, pathMatch:'full'},
+  {path:'airport/:code', component:AirPortDetailsComponent, pathMatch:'full'},
   {path:'airports', component:AirportComponent, pathMatch:'full'},
   {path:'reservations', component:ReservationComponent, pathMatch:'full'},
   {path:'passengers', component:PassengerComponent, pathMatch:'full'},

@@ -1,3 +1,64 @@
-<p>
-  reservation works!
-</p>
+
+<h5 class="text-blue"> <i class="material-icons left-icon">airplanemode_active</i>Reservations</h5>
+<table>
+
+ 
+
+  <thead>
+    <tr>
+        <th>ID</th>
+        <th>code</th>
+        <th>reservation Status</th>
+        <th>passengerId</th>
+        <th>email</th>
+        <th>#</th>
+    </tr>
+  </thead>
+ 
+  <tbody>
+    <tr *ngFor="let item of airlines">
+      <td>{{item.id}}</td>
+      <td>{{item.code}}</td>
+      <td>{{item.reservationStatus}}</td>
+      <td>{{item.passengerId}}</td>
+      <td>{{item.userEmail}}</td>
+      <td>
+        <a (click)="prepareToUpdate(item)" class="btn-floating  modal-trigger"><i class="material-icons">edit</i></a>
+        <a (click)="delete(item.code)" class="btn-floating"><i class="material-icons">delete</i></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div [hidden]="!modal" class="black"></div>
+<div [hidden]="!modal" class="mymodal">
+  <div class="modal-content">
+    <form [hidden]="isLoading" [formGroup]="editForm" (ngSubmit)="sendUpdate()" class="col s12 center">
+        
+      <div class="input-field col s12">
+        <input      placeholder="Placeholder" formControlName="code" type="text" >
+        <label for="name">code</label>
+      </div>
+      <div class="input-field col s12">
+        <input    placeholder="Placeholder" formControlName="name" type="text" >
+        <label for="name">name</label>
+      </div>
+      <div class="input-field col s12">
+        <input placeholder="Placeholder"  type="text" formControlName="history" >
+        <label for="history">history</label>
+      </div>
+      <div class="col s12">
+    <button [disabled]="!editForm.valid" class="btn  blue accent-4" type="submit" name="action">submit
+      <i class="material-icons right">send</i>
+    </button>
+
+    <button (click)="modal=false"  class="btn modal-close  blue accent-4" type="button"  >Close
+      <i class="material-icons right">close</i>
+    </button>
+  
+    </div>
+
+</form>
+  </div>
+</div>
+      

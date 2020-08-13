@@ -1,3 +1,76 @@
-<p>
-  airport works!
-</p>
+
+<h5 class="text-blue"> <i class="material-icons left-icon">airplanemode_active</i>AirPorts</h5>
+<a (click)="add()"   class="btn blue accent-4">Add Airoport</a>
+<table>
+  <thead>
+    <tr>
+        <th>ID</th>
+        <th>Code</th>
+        <th>Name</th>
+        <th>address</th>
+        <th>#</th>
+    </tr>
+  </thead>
+ 
+  <tbody>
+    <tr *ngFor="let item of airlines">
+      <td>{{item.id}}</td>
+      <td><a class="text-blue" [routerLink]="['/airport/',item.code]" >{{item.name}}</a></td>
+      <td>{{item.code}}</td>
+      <td>{{item.address.street}} {{item.address.city}} {{item.address.state}} {{item.address.zip}}</td>
+      <td>
+        <a (click)="prepareToUpdate(item)" class="btn-floating  modal-trigger"><i class="material-icons">edit</i></a>
+        <a (click)="delete(item.code)" class="btn-floating"><i class="material-icons">delete</i></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div [hidden]="!modal" class="black"></div>
+<div [hidden]="!modal" class="mymodal">
+  <div class="modal-content">
+    <form [hidden]="isLoading" [formGroup]="editForm" (ngSubmit)="sendUpdate()" class="col s12 center">
+        
+      <div class="input-field col s12">
+        <input      placeholder="Placeholder" formControlName="code" type="text" >
+        <label for="name">code</label>
+      </div>
+      <div class="input-field col s12">
+        <input    placeholder="Placeholder" formControlName="name" type="text" >
+        <label for="name">name</label>
+      </div>
+      <div class="input-field col s12">
+        <input placeholder="Placeholder"  type="text" formControlName="history" >
+        <label for="history">history</label>
+      </div>
+      <div class="input-field col s12">
+        <input placeholder="Placeholder"  type="text" formControlName="state" >
+        <label for="state">state</label>
+      </div>
+      <div class="input-field col s12">
+        <input placeholder="Placeholder"  type="text" formControlName="street" >
+        <label for="street">street</label>
+      </div>
+      <div class="input-field col s12">
+        <input placeholder="Placeholder"  type="text" formControlName="city" >
+        <label for="city">city</label>
+      </div>
+      <div class="input-field col s12">
+        <input placeholder="Placeholder"  type="text" formControlName="zip" >
+        <label for="zip">zip</label>
+      </div>
+      <div class="col s12">
+    <button [disabled]="!editForm.valid" class="btn  blue accent-4" type="submit" name="action">submit
+      <i class="material-icons right">send</i>
+    </button>
+
+    <button (click)="modal=false"  class="btn modal-close  blue accent-4" type="button"  >Close
+      <i class="material-icons right">close</i>
+    </button>
+  
+    </div>
+
+</form>
+  </div>
+</div>
+      

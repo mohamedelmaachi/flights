@@ -1,0 +1,31 @@
+
+<h4 *ngIf="data.length">Flights of {{data[0].airline.name}} </h4>
+<h4 *ngIf="!data.length">No Flights</h4>
+
+<table>
+  <thead>
+    <tr>
+        <th>number</th>
+        <th>capacity</th>
+        <th>airline Code</th>
+        <th>departure Airport Code</th>
+        <th>arrivalAir port Code</th>
+        <th>departure Date</th>
+        <th>arrival Date</th>
+        <th>#</th>
+    </tr>
+  </thead>
+ 
+  <tbody>
+    <tr *ngFor="let item of data">
+      <td>{{item.number}}</td>
+      <td>{{item.capacity}}</td>
+      <td>{{item.airline.code  }}</td>
+      <td>{{item.departureAirport.code}}</td>
+      <td>{{item.arrivalAirport.code}}</td>
+      <td>{{item.departureDate}}</td>
+      <td>{{item.arrivalDate}}</td>
+    </tr>
+  </tbody>
+</table>
+

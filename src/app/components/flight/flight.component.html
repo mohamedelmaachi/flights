@@ -1,3 +1,81 @@
-<p>
-  flight works!
-</p>
+
+<h5 class="text-blue"> <i class="material-icons left-icon">airplanemode_active</i>Flights</h5>
+<a (click)="add()"   class="btn blue accent-4">Add flight</a>
+<table>
+  <thead>
+    <tr>
+        <th>number</th>
+        <th>capacity</th>
+        <th>airline Code</th>
+        <th>departure Airport Code</th>
+        <th>arrivalAir port Code</th>
+        <th>departure Date</th>
+        <th>arrival Date</th>
+        <th>#</th>
+    </tr>
+  </thead>
+ 
+  <tbody>
+    <tr *ngFor="let item of data">
+      <td>{{item.number}}</td>
+      <td>{{item.capacity}}</td>
+      <td>{{item.airline.code  }}</td>
+      <td>{{item.departureAirport.code}}</td>
+      <td>{{item.arrivalAirport.code}}</td>
+      <td>{{changeDate(item.departureDate)}}</td>
+      <td>{{changeDate(item.arrivalDate)}}</td>
+      <td>
+        <a (click)="prepareToUpdate(item)"   class="btn-floating  modal-trigger"><i class="material-icons">edit</i></a>
+        <a (click)="delete(item.number)" class="btn-floating"><i class="material-icons">delete</i></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal Structure -->
+<div [hidden]="!modal" class="black"></div>
+<div [hidden]="!modal" class="mymodal">
+  <div class="mymodal-content">
+    <form [hidden]="isLoading" [formGroup]="editForm" (ngSubmit)="sendUpdate()" class="col s12 center">
+        
+      <div class="input-field col s12">
+        <input      placeholder="Placeholder" formControlName="number" type="text" >
+        <label for="number">number</label>
+      </div>
+      <div class="input-field col s12">
+        <input      placeholder="Placeholder" formControlName="capacity" type="text" >
+        <label for="capacity">capacity</label>
+      </div>
+      <div class="input-field col s12">
+        <input    placeholder="Placeholder" formControlName="airlineCode" type="text" >
+        <label for="airlineCode">airline Code</label>
+      </div>
+      <div class="input-field col s12">
+        <input placeholder="Placeholder"  type="text" formControlName="departureAirportCode" >
+        <label for="departureAirportCode">departure Airport Code</label>
+      </div>
+      <div class="input-field col s12">
+        <input placeholder="Placeholder"  type="text" formControlName="arrivalAirportCode" >
+        <label for="arrivalAirportCode">arrival Air port Code</label>
+      </div>
+      <div class="input-field col s12">
+        <input   type="text" formControlName="departureDate" >
+        <label style="top:-13px;"  >departure Date</label>
+      </div>
+      <div class="input-field col s12">
+        <input    type="text" formControlName="arrivalDate" >
+        <label style="top:-13px;"  >arrival Date</label>
+      </div>
+      <div class="col s12">
+    <button [disabled]="!editForm.valid" class="btn  blue accent-4" type="submit" name="action">submit
+      <i class="material-icons right">send</i>
+    </button>
+    <button (click)="modal=false" class="btn modal-close  blue accent-4" type="button"  >Close
+      <i class="material-icons right">close</i>
+    </button>
+  
+    </div>
+</form>
+  </div>
+</div>
+      
